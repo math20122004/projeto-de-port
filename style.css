@@ -44,8 +44,8 @@ body * {
 }
 
 #container {
-  height: 712px; /*Altura*/
-  width: 360px; /*Largura*/
+  width: 100%; /*Largura*/
+  max-width: 588px;
   /* margin-left: auto;
   margin-right: auto;  A MESMA COISA QUE:*/
   margin: 56px auto 0; /*Margin = Espaço entre elementos e seus vizinhos*/
