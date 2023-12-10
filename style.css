@@ -1,0 +1,177 @@
+* {
+  margin: 0; /*Margin = Espaço entre elementos e seus vizinhos*/
+  padding: 0; /*Espaço entre conteúdo e suas bordas*/
+  box-sizing: border-box;  
+}
+
+:root { /*Root = Raiz*/
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light-mode {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+
+body{
+  /*background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover; */
+
+  /* background: color image repeat position/size */
+  /*              ^
+                  |
+                  |      */
+  background: var(--bg-url) no-repeat top center/cover; 
+}
+
+body * {
+  font-family: 'Inter', sans-serif; /*Fonte*/
+  color: var(--text-color); /*Cor*/
+}
+
+#container {
+  height: 712px; /*Altura*/
+  width: 360px; /*Largura*/
+  /* margin-left: auto;
+  margin-right: auto;  A MESMA COISA QUE:*/
+  margin: 56px auto 0; /*Margin = Espaço entre elementos e seus vizinhos*/
+
+  padding: 0 24px;
+}
+ 
+/*Profile*/
+
+#profile {
+  text-align: center;  /*Deixa textos no centro*/
+  padding: 24px; /*Espaço entre conteúdo e suas bordas*/
+}
+
+#profile img {
+  width: 112px; /*Largura*/
+  border-radius: 50%;
+}
+
+#profile p {
+  font-weight: 500; /*Peso da fonte*/
+  line-height: 24px; /*Altura*/
+  margin-top: 8px; /*Margin encima*/
+}
+
+/*Switch*/
+
+#switch {
+  position: relative; /*Ele faz com que o item que contém o absolute seja relativo a ele. Permite que qualquer absolute que esteja nele fique certinho */
+
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+
+  position: absolute;    /*Ele faz uma sobreposição de camadas || Ele faz com que o item possa sair andando pela pág.*/
+  left: 0;
+  top: 50%;
+  z-index: 1;    /*É como se fosse as camadas*/
+  transform: translateY(-50%); /*anda no eixo Y*/
+}
+
+.light-mode #switch button {
+  right: 0;
+  left: initial; /*Faz ele voltar a seu lugar original*/
+}
+
+#switch span {
+  display: block;
+  height: 24px;
+  width: 64px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+
+/*Links*/
+
+
+ul{
+  list-style: none; /*Tira estilos da lista (ul)*/
+
+  display: flex; /*Faz com que ocupe só o  espaço que ele ocupa e não a linha inteira*/
+  flex-direction: column; /* Ordena assim pra mim: coluna*/
+  gap: 16px; /* Espaço entre os elementos*/
+
+  padding: 24px 0;
+
+}
+
+ul li a{
+  display: flex; /*Faz com que fique flexivel. Deixa o texto encima da linha imaginaria central*/
+  align-items: center; /* = Alinhar itens: no centro. Alinha verticalmente os itens na linha imaginaria (y)*/
+  justify-content: center; /*Deixa no centro. Alinha horizontalmente no centro da linha imaginaria (x)*/
+
+  padding: 16px 24px;
+
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px; /*Arredondamento da borda*/
+
+  backdrop-filter: blur(4px); /*Deixa meio embaçado. Tipo um filtro.*/
+
+  text-decoration: none; /*Tira as decorações do texto (usado aqui para tirar linhas de baixo)*/
+  font-weight: 500; /*Peso da fonte*/
+
+  transition: background 0.2s; /*Transição e tempo que faz a transição*/
+}
+
+/*pseudo-selector || Serve para mudarmos as coisas quando passarmos o mouse encima*/
+ul li a:hover{
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 10px;
+}
+
+/*Social-Links*/
+#social-links {
+  padding:0 24px;
+  justify-content: center;
+  display: flex;
+  font-size: 24px; /*Altera o tamanho de todos*/
+}
+
+#social-links a {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+
+#social-links a:hover{
+  background: var(--highlight-color);
+}
